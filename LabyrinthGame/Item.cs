@@ -8,10 +8,10 @@ namespace LabyrinthGame
 {
     internal class Item
     {
-        public Position Position { get; set; }
+        public Vector_2D Position { get; set; }
         public ItemType Type { get; set; }
 
-        public Item(Position pos, ItemType type)
+        public Item(Vector_2D pos, ItemType type)
         {
             Position = pos;
             Type = type;

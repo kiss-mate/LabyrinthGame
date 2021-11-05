@@ -8,7 +8,7 @@ namespace LabyrinthGame
 {
     internal class Player
     {
-        public Position Position { get; set; }
+        public Vector_2D Position { get; set; }
         public int Health { get; set; }
         public char Avatar { get; set; }
     }
