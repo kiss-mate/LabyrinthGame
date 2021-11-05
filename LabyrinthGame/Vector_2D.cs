@@ -16,5 +16,15 @@ namespace LabyrinthGame
         {
             return new Vector_2D() { X = p1.X + p2.X, Y = p1.Y + p2.Y }; 
         }
+
+        public static bool operator ==(Vector_2D p1, Vector_2D p2)
+        {
+            return p1.X == p2.X && p1.Y == p2.Y;
+        }
+
+        public static bool operator !=(Vector_2D p1, Vector_2D p2)
+        {
+            return p1.X != p2.X && p1.Y != p2.Y;
+        }
     }
 }
