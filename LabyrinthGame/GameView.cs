@@ -2,7 +2,7 @@
 
 namespace LabyrinthGame
 {
-    internal class Program
+    internal class GameView
     {
         static void Main(string[] args)
         {
