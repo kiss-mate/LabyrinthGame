@@ -19,7 +19,7 @@ namespace LabyrinthGame
 
         public void run()
         {
-            while(CheckGameState().Equals(State.PLAYER_INGAME))
+            while(gameModel.State.Equals(State.PLAYER_INGAME))
             {
                 //render
                 Vector_2D step = GetUserInput();
@@ -38,14 +38,38 @@ namespace LabyrinthGame
             throw new NotImplementedException();
         }
 
-        private State CheckGameState()
-        {
-            return State.PLAYER_INGAME;
-        }
+        //private State CheckGameState()
+        //{
+        //    return State.PLAYER_INGAME;
+        //}
 
         private Vector_2D GetUserInput()
         {
-            return new Vector_2D() { X = 0, Y = 0 };
+            ConsoleKey keyPressed = Console.ReadKey().Key;
+            switch (keyPressed)
+            {
+                case ConsoleKey.Escape:
+                    gameModel.State = State.PLAYER_LOST;
+                    return new Vector_2D() { X = 0, Y = 0 };
+                    break;
+                case ConsoleKey.LeftArrow:
+                    return new Vector_2D() { X = -1, Y = 0 };
+                    break;
+                case ConsoleKey.UpArrow:
+                    return new Vector_2D() { X = 0, Y = -1 };
+                    break;
+                case ConsoleKey.RightArrow:
+                    return new Vector_2D() { X = 1, Y = 0 };
+                    break;
+                case ConsoleKey.DownArrow:
+                    return new Vector_2D() { X = 0, Y = 1 };
+                    break;
+                default:
+                    return new Vector_2D() { X = 0, Y = 0 };
+                    break;
+            }
+
+            
         }
 
         private void MovePlayer(Vector_2D step)
