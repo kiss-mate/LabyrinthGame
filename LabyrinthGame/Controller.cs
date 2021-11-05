@@ -38,11 +38,6 @@ namespace LabyrinthGame
             throw new NotImplementedException();
         }
 
-        //private State CheckGameState()
-        //{
-        //    return State.PLAYER_INGAME;
-        //}
-
         private Vector_2D GetUserInput()
         {
             ConsoleKey keyPressed = Console.ReadKey().Key;
@@ -74,16 +69,55 @@ namespace LabyrinthGame
 
         private void MovePlayer(Vector_2D step)
         {
-            throw new NotImplementedException();
+            gameModel.Player.Position += step;
         }
 
         private void UpdatePlayerState()
         {
-            return;
+            Vector_2D currentPos = gameModel.Player.Position;
+            foreach (Item item in gameModel.Map.Items)
+            {
+                //polimorf viselkedés utánzása, szorosan kötött...
+                if (item.Position == currentPos)
+                {
+                    if (item.Type.Equals(ItemType.WALL))
+                    {
+                        //not possible
+                    }
+                    if (item.Type.Equals(ItemType.APPLE))
+                    {
+                        gameModel.Player.Health = Math.Min(100, gameModel.Player.Health + 25);
+                    }
+                    if (item.Type.Equals(ItemType.FIRE))
+                    {
+                        gameModel.Player.Health = Math.Max(0, gameModel.Player.Health - 50);
+                    }
+                }
+            } 
         }
 
         private bool CheckCollision(Vector_2D step)
         {
+            Vector_2D target = gameModel.Player.Position + step;
+            foreach(Item item in gameModel.Map.Items)
+            {
+                //polimorf viselkedés utánzása, szorosan kötött...
+                if (item.Position == target)
+                {
+                    if (item.Type.Equals(ItemType.WALL))
+                    {
+                        return true;
+                    }
+                    if (item.Type.Equals(ItemType.APPLE))
+                    {
+                        return false;
+                    }
+                    if (item.Type.Equals(ItemType.FIRE))
+                    {
+                        return false;
+                    }
+                }
+            }
             return false;
         }
 
