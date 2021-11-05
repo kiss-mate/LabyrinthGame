@@ -11,5 +11,10 @@ namespace LabyrinthGame
         public Vector_2D Position { get; set; }
         public int Health { get; set; }
         public char Avatar { get; set; }
+
+        public Player()
+        {
+            Health = 100;
+        }
     }
 }

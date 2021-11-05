@@ -10,12 +10,12 @@ namespace LabyrinthGame
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public List<Item> Items { get; private set; }
+        public List<Item> Items { get; set; }
 
-        public Map(int width, int height)
+        public Map()
         {
-            Width = width;
-            Height = height;
+            //Width = width;
+            //Height = height;
             Items = new List<Item>();
         }
         

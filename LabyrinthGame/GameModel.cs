@@ -13,10 +13,10 @@ namespace LabyrinthGame
         public Map Map { get; set; }
         public State State { get; set; }
 
-        public GameModel(Player player, Map map)
+        public GameModel()
         {
-            Player = player;
-            Map = map;
+            this.Player = new Player();
+            this.Map = new Map();
             State = State.PLAYER_INGAME;
         }
 

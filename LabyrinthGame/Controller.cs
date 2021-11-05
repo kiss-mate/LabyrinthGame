@@ -9,24 +9,27 @@ namespace LabyrinthGame
     internal class Controller
     {
         GameModel gameModel;
+        ConsoleRenderer gameRenderer;
         //TODO ViewModel
 
-        public Controller(GameModel gameModel)
+        public Controller(GameModel gameModel, ConsoleRenderer consoleRenderer)
         {
             this.gameModel = gameModel;
+            this.gameRenderer = consoleRenderer;
             //TODO ViewModel
         }
 
         public void run()
         {
+            
             while(gameModel.State.Equals(State.PLAYER_INGAME))
             {
-                //render
+                gameRenderer.Render();
                 Vector_2D step = GetUserInput();
                 if(!CheckCollision(step))
                 {
                     MovePlayer(step);
-                    UpdatePlayerState();
+                    UpdatePlayerState();    
                 }
                 UpdateGameState();
             }
