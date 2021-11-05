@@ -10,11 +10,13 @@ namespace LabyrinthGame
     {
         public Player Player { get; set; }
         public Map Map { get; set; }
+        public State State { get; set; }
 
         public GameModel(Player player, Map map)
         {
             Player = player;
             Map = map;
+            State = State.PLAYER_INGAME;
         }
     }
 }
