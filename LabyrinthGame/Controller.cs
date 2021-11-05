@@ -27,7 +27,6 @@ namespace LabyrinthGame
                 {
                     MovePlayer(step);
                     UpdatePlayerState();
-                    
                 }
                 UpdateGameState();
             }
@@ -35,7 +34,20 @@ namespace LabyrinthGame
 
         private void UpdateGameState()
         {
-            throw new NotImplementedException();
+            Vector_2D currentPos = gameModel.Player.Position;
+            foreach (Item item in gameModel.Map.Items)
+            {
+                //polimorf viselkedés utánzása, szorosan kötött...
+                if (item.Position == currentPos && item.Type.Equals(ItemType.EXIT))
+                {
+                    gameModel.State = State.PLAYER_WON;
+                }
+            }
+
+            if(gameModel.Player.Health == 0)
+            {
+                gameModel.State = State.PLAYER_LOST;
+            }
         }
 
         private Vector_2D GetUserInput()

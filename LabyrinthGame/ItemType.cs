@@ -10,6 +10,7 @@ namespace LabyrinthGame
     {
         WALL,
         FIRE,
-        APPLE
+        APPLE,
+        EXIT
     }
 }
