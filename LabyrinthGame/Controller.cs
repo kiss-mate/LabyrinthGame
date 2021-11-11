@@ -102,6 +102,8 @@ namespace LabyrinthGame
                     if (item.Type.Equals(ItemType.APPLE))
                     {
                         gameModel.Player.Health = Math.Min(100, gameModel.Player.Health + 25);
+                        gameModel.Map.Items.Remove(item);
+                        break;
                     }
                     if (item.Type.Equals(ItemType.FIRE))
                     {
