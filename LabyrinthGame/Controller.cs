@@ -99,7 +99,7 @@ namespace LabyrinthGame
                     {
                         //not possible
                     }
-                    if (item.Type.Equals(ItemType.APPLE))
+                    if (item.Type.Equals(ItemType.APPLE) && gameModel.Player.Health < 100)
                     {
                         gameModel.Player.Health = Math.Min(100, gameModel.Player.Health + 25);
                         gameModel.Map.Items.Remove(item);
