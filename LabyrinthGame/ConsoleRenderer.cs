@@ -18,6 +18,7 @@ namespace LabyrinthGame
         public void Render()
         {
             Console.Clear();
+            Console.CursorVisible = false;
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             for (int y = 0; y < model.Map.Height; y++)
             {
