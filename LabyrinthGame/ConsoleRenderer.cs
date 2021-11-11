@@ -29,6 +29,9 @@ namespace LabyrinthGame
             }
             Console.ResetColor();
 
+            Console.SetCursorPosition(0, model.Map.Height+2);
+            Console.WriteLine("Heath: " + model.Player.Health);
+
 
 
             //draw items
